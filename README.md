@@ -28,8 +28,8 @@ function get_tor_ip()
 Middleware::tor($proxy, $torControl)
 ```
 
-- *$proxy* is tor socks5 port, by default '127.0.0.1:9050'
-- *$torControl* is Tor control port, by default '127.0.0.1:9051'. Set if you want to 
+- **$proxy** is tor socks5 port, by default '127.0.0.1:9050'
+- **$torControl** is Tor control port, by default '127.0.0.1:9051'. Set if you want to 
 change ip (clean circuits)
 
 ### Request options
@@ -43,9 +43,9 @@ $client->get('https://check.torproject.org/', [
 ]);
 ```
 
-- *tor_new_identity* Change identity/IP (clean circuits) before request. If is set we send NEWNYM
+- **tor_new_identity** Change identity/IP (clean circuits) before request. If is set we send NEWNYM
 signal to Tor client. Please be aware, that this method does not guarantee 
 that identity will be changed soon
-- *tor_new_identity_sleep* pause (seconds) between ip change identity and request
-- *tor_new_identity_timeout* Timeout for Tor control connection
-- *tor_control_password* Tor control password
+- **tor_new_identity_sleep** pause (seconds) between ip change identity and request
+- **tor_new_identity_timeout** Timeout for Tor control connection
+- **tor_control_password** Tor control password
