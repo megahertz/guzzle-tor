@@ -1,0 +1,31 @@
+{
+    "name": "megahertz/guzzle-tor",
+    "type": "library",
+    "description": "This Guzzle middleware allows to use Tor client as a proxy",
+    "keywords": ["Guzzle", "Tor", "Onion"],
+    "homepage": "http://github.com/megahertz/guzzle-tor",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alexey Prokhorov",
+            "email": "alexey.p@l96.ru"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "*",
+        "php": ">=5.6"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "GuzzleTor\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "GuzzleTor\\Tests\\": "tests/"
+        }
+    }
+}
