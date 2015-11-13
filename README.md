@@ -32,7 +32,7 @@ function get_tor_ip()
   php composer.phar require megahertz/guzzle-tor
   ```
   
-3. (optional) Copy example and run
+3. (optional) Copy an example and run
   ```bash
   cp vendor/megahertz/guzzle-tor/example.php example.php
   php example.php
