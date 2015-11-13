@@ -1,7 +1,7 @@
 GuzzleTor
 =========
 
-This Guzzle middleware allows to use Tor client as a proxy
+This [Guzzle](https://github.com/guzzle/guzzle) middleware allows to use Tor client as a proxy
 
 ```php
 function get_tor_ip()
