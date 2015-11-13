@@ -21,6 +21,23 @@ function get_tor_ip()
 }
 ```
 
+## Get started
+
+1. Install composer 
+  
+  Follow the instruction at https://getcomposer.org/download/
+
+2. Install guzzle-tor
+  ```bash
+  php composer.phar require megahertz/guzzle-tor
+  ```
+  
+3. (optional) Copy example and run
+  ```bash
+  cp vendor/megahertz/guzzle-tor/example.php example.php
+  php example.php
+  ```
+
 ## Options
 ### General
 
