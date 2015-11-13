@@ -60,12 +60,10 @@ $client->get('https://check.torproject.org/', [
     'tor_control_password'       => 'password' 
 ]);
 ```
-
-- **tor_new_identity** Change identity/IP (clean circuits) before request. If is set we send NEWNYM
-signal to Tor client. Please be aware, that this method does not guarantee 
-that identity will be changed soon
-- **tor_new_identity_sleep** pause (seconds) between ip change identity and request
-- **tor_new_identity_timeout** Timeout for Tor control connection
-- **tor_control_password** Tor control password
-- **tor_new_identity_exception** If true throw TorNewIdentityException if an error was occurred
-while trying to change identity
+Name                      | Description 
+--------------------------|-------
+tor_new_identity          | Change an identity/IP (clean circuits) before request. If it's set, we send NEWNYM signal to Tor client. Please be aware, that this method does not guarantee that an identity will be changed soon
+tor_new_identity_sleep    | Pause (seconds) between an ip change identity and a request sending
+tor_new_identity_timeout  | Timeout for a Tor control connection
+tor_control_password      | Tor control password
+or_new_identity_exception | If true throw TorNewIdentityException if an error was occurred while trying to change an identity
