@@ -36,10 +36,11 @@ change ip (clean circuits)
 
 ```php
 $client->get('https://check.torproject.org/', [
-    'tor_new_identity'         => true,
-    'tor_new_identity_sleep'   => 15,
-    'tor_new_identity_timeout' => 3,
-    'tor_control_password'     => 'password' 
+    'tor_new_identity'           => true,
+    'tor_new_identity_sleep'     => 15,
+    'tor_new_identity_timeout'   => 3,
+    'tor_new_identity_exception' => true, 
+    'tor_control_password'       => 'password' 
 ]);
 ```
 
@@ -49,3 +50,5 @@ that identity will be changed soon
 - **tor_new_identity_sleep** pause (seconds) between ip change identity and request
 - **tor_new_identity_timeout** Timeout for Tor control connection
 - **tor_control_password** Tor control password
+- **tor_new_identity_exception** If true throw TorNewIdentityException if an error was occurred
+while trying to change identity
