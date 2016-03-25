@@ -59,18 +59,18 @@ class Middleware
             throw new TorNewIdentityException("Could not connect to Tor client on $torControl: $errNo $errStr");
         }
 
-        fputs($socket, "AUTHENTICATE $password\r\n");
+        fputs($socket, "AUTHENTICATE \"$password\"\r\n");
         $response = fread($socket, 1024);
         $code = explode(' ', $response, 2)[0];
         if (self::TOR_OK != $code) {
-            throw new TorNewIdentityException("Could not authenticate on Tor client");
+            throw new TorNewIdentityException("Could not authenticate on Tor client, response: $response");
         }
 
         fputs($socket, "signal NEWNYM\r\n");
         $response = fread($socket, 1024);
         $code = explode(' ', $response, 2)[0];
         if (self::TOR_OK != $code) {
-            throw new TorNewIdentityException("Could not get new identity");
+            throw new TorNewIdentityException("Could not get new identity, response: $response");
         }
 
         fclose($socket);
