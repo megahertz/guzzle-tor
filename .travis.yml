@@ -6,5 +6,8 @@ php:
   - hhvm
   - nightly
   
+before_install:
+  - sudo apt-get install -y tor
+  
 install:
   - composer install
