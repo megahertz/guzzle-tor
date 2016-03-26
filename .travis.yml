@@ -8,6 +8,8 @@ php:
   
 before_install:
   - sudo apt-get install -y tor
+  - sudo sh -c 'echo "ControlPort 9051" >> /etc/tor/torrc'
+  - sudo service tor restart
   
 install:
   - composer install
