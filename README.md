@@ -1,5 +1,5 @@
-GuzzleTor
-=========
+#GuzzleTor
+[![Build Status](https://travis-ci.org/megahertz/guzzle-tor.svg?branch=master)](https://travis-ci.org/megahertz/guzzle-tor)
 
 This [Guzzle](https://github.com/guzzle/guzzle) middleware allows to use Tor client as a proxy
 
