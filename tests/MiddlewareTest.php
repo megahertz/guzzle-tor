@@ -55,8 +55,9 @@ class MiddlewareTest extends \PHPUnit_Framework_TestCase
         $firstIp = self::extractTorInfo($response->getBody())['ip'];
 
         $response = $client->get('https://check.torproject.org/', [
-            'tor_new_identity' => true,
-            'tor_new_identity_sleep' => 15
+            'tor_new_identity'           => true,
+            'tor_new_identity_sleep'     => 15,
+            'tor_new_identity_exception' => true
         ]);
         $secondIp = self::extractTorInfo($response->getBody())['ip'];
 
