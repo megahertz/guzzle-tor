@@ -24,12 +24,12 @@ class Middleware
                 RequestInterface $request,
                 array $options
             ) use ($handler, $proxy, $torControl) {
-                $options = array_replace_recursive([
+                $options = array_replace_recursive($options, [
                     'proxy' => $proxy,
                     'curl'  => [
                         CURLOPT_PROXYTYPE => CURLPROXY_SOCKS5_HOSTNAME
                     ]
-                ], $options);
+                ]);
 
                 if (@$options['tor_new_identity']) {
                     try {
