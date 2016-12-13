@@ -1,9 +1,9 @@
 {
-    "name": "megahertz/guzzle-tor",
+    "name": "lampdev/guzzle-tor",
     "type": "library",
     "description": "This Guzzle middleware allows to use Tor client as a proxy",
     "keywords": ["Guzzle", "Tor", "Onion"],
-    "homepage": "http://github.com/megahertz/guzzle-tor",
+    "homepage": "http://github.com/lampdev/guzzle-tor",
     "license": "MIT",
     "authors": [
         {
