@@ -31,7 +31,7 @@ class Middleware
                     ]
                 ], $options);
 
-                if (@$options['tor_new_identity']) {
+                if (array_key_exists('tor_new_identity', $options) && $options['tor_new_identity']) {
                     try {
                         self::requireNewTorIdentity($torControl, $options);
                     } catch (GuzzleException $e) {
