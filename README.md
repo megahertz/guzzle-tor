@@ -38,6 +38,33 @@ function get_tor_ip()
   php example.php
   ```
 
+##Symfony 3/4 config DI
+```yml
+services:
+
+    GuzzleHttp\HandlerStack: ~
+    
+    app.client.tor:
+      class: GuzzleTor\Middleware
+      factory: ['GuzzleTor\Middleware', tor]
+
+    app.client.handler_stack:
+      factory: GuzzleHttp\HandlerStack:create
+      class: GuzzleHttp\HandlerStack
+      calls:
+      - [ push, ['@app.client.tor'] ]
+
+    app.client:
+      class: GuzzleHttp\Client
+      arguments:
+      - {handler: '@app.client.handler_stack'}
+
+    #Aliases
+    GuzzleHttp\Client: '@app.client'
+
+```
+
+
 ## Options
 ### General
 
