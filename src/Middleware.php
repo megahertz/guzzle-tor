@@ -15,9 +15,10 @@ class Middleware
      *
      * @param string $proxy Tor socks5 proxy host:port
      * @param string $torControl Tor control host:port
+     * @param int $proxyType 
      * @return callable
      */
-    public static function tor($proxy = '127.0.0.1:9050', $torControl = '127.0.0.1:9051')
+    public static function tor($proxy = '127.0.0.1:9050', $torControl = '127.0.0.1:9051', $proxyType = CURLPROXY_SOCKS5_HOSTNAME)
     {
         return function (callable $handler) use ($proxy, $torControl) {
             return function (
@@ -27,7 +28,7 @@ class Middleware
                 $options = array_replace_recursive([
                     'proxy' => $proxy,
                     'curl'  => [
-                        CURLOPT_PROXYTYPE => CURLPROXY_SOCKS5_HOSTNAME
+                        CURLOPT_PROXYTYPE => $proxyType
                     ]
                 ], $options);
 
