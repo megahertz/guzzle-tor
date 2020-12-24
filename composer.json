@@ -12,10 +12,10 @@
         }
     ],
     "require": {
-        "guzzlehttp/guzzle": "^6.2@stable"
+        "guzzlehttp/guzzle": ">=6.2"
     },
     "require-dev": {
-        "phpunit/phpunit": "4.*"
+        "phpunit/phpunit": "9.*"
     },
     "autoload": {
         "psr-4": {
