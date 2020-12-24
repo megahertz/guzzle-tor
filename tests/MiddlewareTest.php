@@ -8,8 +8,10 @@ use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Response;
 use GuzzleTor\Middleware;
+use GuzzleTor\TorNewIdentityException;
+use PHPUnit\Framework\TestCase;
 
-class MiddlewareTest extends \PHPUnit_Framework_TestCase
+class MiddlewareTest extends TestCase
 {
     public function testInitialize()
     {
@@ -64,11 +66,10 @@ class MiddlewareTest extends \PHPUnit_Framework_TestCase
         $this->assertNotEquals($firstIp, $secondIp);
     }
 
-    /**
-     * @expectedException \GuzzleTor\TorNewIdentityException
-     */
     public function testExceptionWhileNewIdentity()
     {
+        $this->expectException(TorNewIdentityException::class);
+
         $stack = new HandlerStack();
         $stack->setHandler(new CurlHandler());
         $stack->push(Middleware::tor('127.0.0.1:9050', 'not-existed-host:9051'));
