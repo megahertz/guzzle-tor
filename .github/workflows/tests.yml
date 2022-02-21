@@ -1,0 +1,45 @@
+name: Tests
+
+on: ['push', 'pull_request']
+
+jobs:
+  ci:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        php: ['7.3', '7.4', '8.0', '8.1']
+
+    name: PHP ${{ matrix.php }} - ${{ matrix.os }}
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: ${{ matrix.php }}
+        tools: composer
+        coverage: none
+
+    - name: Setup Tor
+      uses: tor-actions/setup-tor@main
+      with:
+        tor-version: '0.4.6-rc7'
+        stable: true
+        daemon: true
+        config: |
+            ControlPort 9051
+            CookieAuthentication 0
+
+    - name: Setup Problem Matches
+      run: |
+        echo "::add-matcher::${{ runner.tool_cache }}/php.json"
+        echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
+
+    - name: Install PHP dependencies
+      run: composer install --no-interaction --no-progress --ansi
+
+    - name: Unit Tests
+      run: vendor/bin/phpunit --colors=always
