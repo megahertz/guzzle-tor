@@ -23,7 +23,8 @@ jobs:
         tools: composer
         coverage: none
 
-    - uses: tor-actions/setup-tor@main
+    - name: Setup Tor
+      uses: tor-actions/setup-tor@main
       with:
         tor-version: '0.4.6-rc7'
         stable: true
